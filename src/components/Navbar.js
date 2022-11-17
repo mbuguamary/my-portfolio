@@ -6,9 +6,9 @@ const Navbar = () => {
   const [nav,setNav]=useState(false)
   const handleclick=()=> setNav(!nav)
   return (
-    <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#332c94f1] text-gray-300'>
-      <div>
-    <ul className='hidden md:flex'>
+    <div className='fixed w-full h-[80px] flex justify-between items-center px-4 bg-[#0a192f] text-gray-300'>
+      <div className='hidden md:flex'>
+    <ul className='flex'>
       <li>Home</li>
       <li>About</li>
       <li>Skills</li>
@@ -16,10 +16,14 @@ const Navbar = () => {
       <li>Contact</li>
     </ul>
   </div>
-  {/* <div onClick={handleclick} className='md:hidden z-10'>
-    <FaBars/>
-  </div> */}
-   <ul >
+  <div onClick={handleclick} className='md:hidden z-10'>
+  {!nav ? <FaBars /> : <FaTimes />}
+  </div> 
+   <ul className={
+          !nav
+            ? 'hidden'
+            : 'absolute top-0 left-0 w-full h-screen bg-[#0a192f] flex flex-col justify-center items-center'
+        }>
       <li>Home</li>
       <li>About</li>
       <li>Skills</li>
